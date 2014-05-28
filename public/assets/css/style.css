@@ -61,6 +61,15 @@ header .nav-right {
     float:right;
 }
 
+input[type=search] {
+    text-align: right;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    letter-spacing: 2px;
+    word-spacing: 20px;
+}
+
 .nav-left ul,
 .nav-right ul {
     margin:0;
@@ -140,6 +149,11 @@ article img {
     margin-right:20px;
     background-color:lightblue;
     border:1px solid cornflowerblue;
+}
+
+article .txt-line {
+    float:left;
+    margin-right:20px;
 }
 
 .clearfix:after {
