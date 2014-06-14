@@ -2,7 +2,6 @@ $(document).ready(function() {
     $('.btn-share').on('click',function() {
         var content = $('#input-article').val();
         nailit.addEntry(content);
-
         return false;
     });
 

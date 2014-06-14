@@ -16,6 +16,27 @@ module.exports = function(grunt) {
                 }
             }
         },
+        jshint: {
+            options: {
+                jshintrc: '.jshintrc'
+            },
+            gruntfile: {
+                src: 'Gruntfile.js'
+            },
+            lib: {
+                src: ['public/**/*.js']
+            }
+        },
+        less: {
+            development: {
+                options: {
+                    paths: ["assets/less"]
+                },
+                files: {
+                    "public/css/main.css": "app/less/main.less"
+                }
+            }
+        },
         regarde: {
             pub: {
                 files: 'public/**/*',
@@ -30,8 +51,11 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-express');
     grunt.loadNpmTasks('grunt-contrib-livereload');
+    grunt.loadNpmTasks('grunt-contrib-jshint')
+    grunt.loadNpmTasks('grunt-contrib-less');;
     grunt.loadNpmTasks('grunt-regarde');
 
+    grunt.registerTask('format', ['jshint']);
     grunt.registerTask('server', ['livereload-start', 'express', 'regarde']);
     grunt.registerTask('default',  ['server']);
 };
